@@ -31,7 +31,7 @@ def choosingAlly():
     time.sleep(4)
     os.system('adb shell input tap 1800 1000')
     print("确定")
-    time.sleep(33)
+    time.sleep(30)
     #过渡时间25s  预计28s
 
 def endingBit():
@@ -44,9 +44,18 @@ def endingBit():
     time.sleep(2)
     os.system('adb shell input tap 1800 1000')
     print('确认，下一步')
-    time.sleep(14)
+    #time.sleep(14)
+    time.sleep(2)
 
 def reTop():
     os.system('adb shell input tap 1460 280')
     print('选择最上面的任务')
     time.sleep(1.5)
+
+def reStart():
+    os.system('adb shell input tap 1350 860')
+    time.sleep(1.5)
+
+def notReStart():
+    os.system('adb shell input tap 900 860')
+    time.sleep(15)
