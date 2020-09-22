@@ -13,7 +13,7 @@ the game, a few adjustments are made:
 **Required Team setup:**  
   <img src="Images/team.jpg" width="60%">  
   
-  PS. The requried servants are the first three ones, the specific suit for the master is also required.
+  PS. The requried servants are the first three ones, the specific suit for the master is also required.  
   **version 0.3 update 05/31/2019**
   Three different team setups were implemented for three different classes of experience quest. Within the main menu, users are able to choose the differenct classes to be used,
 and inserting number of times they want to grind the quests. Additional functions such as consuming stamina recovering items are also achieveable through the menu.
