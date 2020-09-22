@@ -55,7 +55,7 @@ class StartPage(tk.Frame):
         label.pack(pady = 10, padx = 10)
 
         buttonPic = tk.PhotoImage(file = "button1gif.gif")
-        button1 = tk.Button(self, image = buttonPic, compound = 'bottom',text="---来，快进入我的怀抱---", command = lambda: controller.show_frame(PageMenu))
+        button1 = tk.Button(self, image = buttonPic, compound = 'bottom',text="Enter", command = lambda: controller.show_frame(PageMenu))
         button1.photo = buttonPic
         button1.config(height = 150, width = 230)
         button1.place(x =175, y =160)
@@ -66,13 +66,12 @@ class PageMenu(tk.Frame):
         
     def __init__(self, parent, controller):
 
-        def startRolling(times):
-
-            if choice.get() == 0:
-                labelException1 = ttk.Label(self, text = "请选择种火 ：/")
-                labelException1.place(x = 200,y = 100)
+        def startRolling(times, curStamina, maxStamina):
+            if times == 0:
+                labelException1 = ttk.Label(self, text = "请增加次数")
+                labelException1.place(x = 200,y = 40)
             else:
-                thread = threading.Thread(target = fa.main, args = (fa.roles[choice.get()],times))
+                thread = threading.Thread(target = fa.main, args = (fa.roles[1],times, curStamina, maxStamina))
                 thread.daemon = True
                 thread.start()
 
@@ -103,24 +102,29 @@ class PageMenu(tk.Frame):
         label = tk.Label(self, text = "这次想打些什么呢", font = LARGE_FONT)
         label.place(x = 20,y = 30)
 
-        textFeed = tk.IntVar()
-        textField = tk.Entry(self, textvariable = textFeed)
-        textField.place(x = 165, y = 170)        
+        labelcs = tk.Label(self, text = "times", font = LARGE_FONT)
+        labelcs.place(x = 180,y = 150)
+        times = tk.IntVar()
+        textFieldt = tk.Entry(self, textvariable = times)
+        textFieldt.place(x = 180, y = 170)
 
-        choice = tk.IntVar()
-        button1 = tk.Radiobutton(self, text="弓术阶种火", font = LARGE_FONT, value = 1, variable = choice)
-        button1.place(x = 40, y = 80)
-        button1.deselect()
 
-        button2 = tk.Radiobutton(self, text="剑骑阶种火", font = LARGE_FONT, value = 2, variable = choice)
-        
-        button2.place(x = 40, y = 120)
+        labelcs = tk.Label(self, text = "current Stamina", font = LARGE_FONT)
+        labelcs.place(x = 40,y = 125)
+        curStamina = tk.IntVar()
+        textFieldcs = tk.Entry(self, textvariable = curStamina)
+        textFieldcs.place(x = 40, y = 145)
 
-        button3 = tk.Radiobutton(self, text="枪杀阶种火", font = LARGE_FONT, value = 3, variable = choice)
-        button3.place(x = 40, y = 160)
+        labelmx = tk.Label(self, text = "max Stamina", font = LARGE_FONT)
+        labelmx.place(x = 40,y = 180)
+        maxStamina = tk.IntVar()
+        textFieldmx = tk.Entry(self, textvariable = maxStamina)
+        textFieldmx.place(x = 40, y = 200)
 
-        button4 = tk.Radiobutton(self, text=" 随机种火 ", font = LARGE_FONT, value = 4, variable = choice)
-        button4.place(x = 40, y = 200)
+
+  
+        labelcs = tk.Label(self, text = "狂阶", font = LARGE_FONT)
+        labelcs.place(x = 40,y = 80)
 
         button5 = tk.Button(self, text="   Back    ", command = lambda: controller.show_frame(StartPage), font = LARGE_FONT)
         button5.place(x = 40, y = 240)
@@ -128,17 +132,18 @@ class PageMenu(tk.Frame):
         button6 = tk.Button(self, text="    Exit    ", command = lambda: sys.exit(), font = LARGE_FONT)
         button6.place(x = 40, y = 280)
 
-        button7 = tk.Button(self, text="=-=-=Start=-=-=",  command = lambda: startRolling(textFeed.get()),font = LARGE_FONT)
-        button7.place(x = 165, y = 200)
+        button7 = tk.Button(self, text="=-=-=Start=-=-=",  command = lambda: startRolling(times.get(), curStamina.get(), maxStamina.get()),font = LARGE_FONT)
+        button7.place(x = 180, y = 240)
 
         button8 = tk.Button(self, text="----Stop----", font = LARGE_FONT, command = lambda: stopRolling())
-        button8.place(x = 190, y = 250)
+        button8.place(x = 205, y = 280)
 
-        button9 = tk.Button(self, text="补充一个金苹果", font = LARGE_FONT, command = lambda: eatAGoldApple())
-        button9.place(x = 165, y = 120)
+        #button9 = tk.Button(self, text="补充一个金苹果", font = LARGE_FONT, command = lambda: eatAGoldApple())
+        #button9.place(x = 180, y = 120)
 
-        button10 = tk.Button(self, text="补充一个银苹果", font = LARGE_FONT, command = lambda: eatASilverApple())
-        button10.place(x = 165, y = 80)
+        #button10 = tk.Button(self, text="补充一个银苹果", font = LARGE_FONT, command = lambda: eatASilverApple())
+        #button10.place(x = 180, y = 80)
+
 
 if __name__ == "__main__":
     app = Foundation()
