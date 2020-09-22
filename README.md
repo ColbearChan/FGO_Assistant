@@ -7,8 +7,8 @@ Andriod Debug Bridge (ADB) and phone connecting is required.
 **version 0.5 update 09/22/2020**
   A big update to the code. The previous three classes are abandoned, only one class is implemented for the the money quest as well as the experience quest. After the update of
 the game, a few adjustments are made:
-  1. The program now also ask for the current stamina, as well as the max stamina. It will keep on count on the stamina and perform recovery when its needed.
-  2. Adaptation to the new update of the game where a new window for choosing wheter restarting the quest shows up after every round.  
+  1. The program now also asks for the current stamina, as well as the max stamina. It will keep on count on the stamina and perform recovery when it is needed.
+  2. Adaptation to the new update of the game, where a new window for restarting the quest shows up after every round.  
   
 **Required Team setup:**  
   <img src="Images/team.jpg" width="60%">  
