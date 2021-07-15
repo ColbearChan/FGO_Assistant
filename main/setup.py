@@ -1,3 +1,5 @@
+#Turning a python script into an exe file
+
 import cx_Freeze
 import sys
 import PIL
