@@ -1,8 +1,12 @@
 **FGO_Assistant**
-  
+
   This project was started during my second year of undergraudate. It is a program that automatically finish the daily quests.
 This code is only available for Android phones, and is been tested on xiaomi mix, multi phone screen scale adaption is not implemented yet.
 Andriod Debug Bridge (ADB) and phone connecting is required.
+
+Dependencies:
+1. ADB
+2. Android phone
 
 **version 0.5 update 09/22/2020**
   A big update to the code. The previous three classes are abandoned, only one class is implemented for the the money quest as well as the experience quest. After the update of
